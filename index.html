@@ -210,6 +210,20 @@
   .sticky-cta span{color:#fff;font-size:13.5px;font-weight:600;}
   .sticky-cta .btn{padding:12px 22px;font-size:13.5px;white-space:nowrap;}
 
+  .kakao-float{
+    position:fixed;right:24px;bottom:96px;z-index:98;
+    width:56px;height:56px;border-radius:50%;
+    background:#FEE500;color:#191919;
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:800;line-height:1.2;text-align:center;
+    box-shadow:0 4px 14px rgba(0,0,0,0.4);
+    transition:transform .15s ease;
+  }
+  .kakao-float:hover{transform:scale(1.08);}
+  @media(max-width:560px){
+    .kakao-float{bottom:84px;right:16px;width:48px;height:48px;font-size:11px;}
+  }
+
   @media(max-width:920px){
     .nav-links{display:none;}
     .pain-grid,.feat-grid{grid-template-columns:repeat(2,1fr);}
@@ -544,6 +558,7 @@
   <span>지금 무료 설명회 신청하기</span>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLScpf9EPFl5QEFkFJP2SUKTK_y34zelQ7XvC2tfO5hxNGtT9fw/viewform" target="_blank" class="btn btn-gold">신청하기</a>
 </div>
+<a class="kakao-float" href="http://pf.kakao.com/_xaKuSX/chat" target="_blank" rel="noopener" aria-label="카카오톡 문의">카톡<br>문의</a>
 
 <script>
   // header scroll state
