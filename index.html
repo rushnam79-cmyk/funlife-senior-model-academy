@@ -118,6 +118,12 @@
   .video-section{padding:110px 0;background:var(--cream2);}
   .video-frame{position:relative;max-width:900px;margin:56px auto 0;border-radius:22px;overflow:hidden;box-shadow:0 30px 70px rgba(74,46,32,.28);border:6px solid #fff;}
   .video-frame video{width:100%;display:block;background:#000;}
+  .video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:56px;}
+  .video-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 14px 34px rgba(74,46,32,.14);text-align:left;transition:transform .3s ease,box-shadow .3s ease;}
+  .video-card:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(74,46,32,.2);}
+  .yt-embed{position:relative;width:100%;padding-top:56.25%;background:#000;}
+  .yt-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-title{padding:16px 18px 20px;font-size:14.5px;font-weight:600;color:var(--brown-deep);line-height:1.5;}
 
   /* CURRICULUM */
   .curriculum{padding:110px 0;background:var(--cream);}
@@ -229,6 +235,7 @@
     .pain-grid,.feat-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
     .gallery-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
     .gallery-grid .g1{grid-row:span 1;min-height:260px;}
+    .video-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
     .timeline{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px;}
     .timeline::before{display:none;}
     .instr-wrap{grid-template-columns:minmax(0,1fr);gap:36px;}
@@ -237,6 +244,7 @@
   }
   @media(max-width:560px){
     .pain-grid,.feat-grid,.sched-grid{grid-template-columns:minmax(0,1fr);}
+    .video-grid{grid-template-columns:minmax(0,1fr);}
     .hero-btns{flex-direction:column;align-items:stretch;}
   }
 
@@ -365,6 +373,36 @@
       <video controls preload="none" poster="assets/video-poster.jpg">
         <source src="assets/fashion-show.mp4" type="video/mp4">
       </video>
+    </div>
+    <div class="video-grid">
+      <div class="video-card reveal">
+        <div class="yt-embed"><iframe src="https://www.youtube.com/embed/JVSWzOntBJI" title="포항시 복지관 20주년 시니어 패션쇼 실버 노인 선배시민 여가활동" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <p class="video-title">포항시 복지관 20주년 시니어 패션쇼 실버 노인 선배시민 여가활동</p>
+      </div>
+      <div class="video-card reveal">
+        <div class="yt-embed"><iframe src="https://www.youtube.com/embed/1hiy_8HWur4" title="실버대통령 시니어모델 동쪽유원지 지주회 사무소 개소식 식전 행사 천연 흙색명장 유매 우리옷 디자인" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <p class="video-title">실버대통령 시니어모델 동쪽유원지 지주회 사무소 개소식 식전 행사 천연 흙색명장 유매 우리옷 디자인</p>
+      </div>
+      <div class="video-card reveal">
+        <div class="yt-embed"><iframe src="https://www.youtube.com/embed/-DKlfPP_NuA" title="2024 한.파키스탄 전통연날리기 교류협력전 바산트문화예술축제 팬라이프 시니어모델스쿨 궁중한복패션쇼 실버대통령 허정은 교수님과 함께" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <p class="video-title">2024 한.파키스탄 전통연날리기 교류협력전 바산트문화예술축제 팬라이프 시니어모델스쿨 궁중한복패션쇼 실버대통령 허정은 교수님과 함께</p>
+      </div>
+      <div class="video-card reveal">
+        <div class="yt-embed"><iframe src="https://www.youtube.com/embed/UeQYZayJz9s" title="2024.10월30일 팬라이프 아카데미 청남대 시니어 모델 드레스 패션쇼 2부" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <p class="video-title">2024.10월30일 팬라이프 아카데미 청남대 시니어 모델 드레스 패션쇼 2부</p>
+      </div>
+      <div class="video-card reveal">
+        <div class="yt-embed"><iframe src="https://www.youtube.com/embed/473koN8wWjc" title="2024.10월30일 펜라이프 아카데미 청남대 시니어 모델 메타세뷔아길 워킹" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <p class="video-title">2024.10월30일 펜라이프 아카데미 청남대 시니어 모델 메타세뷔아길 워킹</p>
+      </div>
+      <div class="video-card reveal">
+        <div class="yt-embed"><iframe src="https://www.youtube.com/embed/_jZ7eEZ3E6w" title="제4회 안중근의사 날개달기 평화패션쇼 &amp; 예술제" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <p class="video-title">제4회 안중근의사 날개달기 평화패션쇼 &amp; 예술제</p>
+      </div>
+      <div class="video-card reveal">
+        <div class="yt-embed"><iframe src="https://www.youtube.com/embed/qTScf22UcmQ" title="제 1회 부여 국제 히스토리 영화제&amp;패션쇼 #부여 #영화제 #패션쇼" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <p class="video-title">제 1회 부여 국제 히스토리 영화제&amp;패션쇼 #부여 #영화제 #패션쇼</p>
+      </div>
     </div>
   </div>
 </section>
