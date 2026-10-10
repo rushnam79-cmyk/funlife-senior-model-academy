@@ -69,8 +69,12 @@
   .hero-content{position:relative;z-index:2;text-align:center;width:100%;padding-top:80px;}
   .hero .eyebrow{color:var(--gold-light);}
   .hero h1{font-size:clamp(38px,6.4vw,74px);font-weight:800;line-height:1.22;letter-spacing:-.01em;margin-bottom:22px;text-shadow:0 6px 30px rgba(0,0,0,.35);}
-  .hero h1 .hl{background:linear-gradient(100deg,var(--gold-light) 20%,#fff 45%,var(--gold) 60%,var(--gold-light) 80%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--gold-light);animation:shimmer 5s ease-in-out infinite;}
   @keyframes shimmer{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+  .hero h1 .ch{display:inline-block;opacity:0;transform:translateY(38px) rotate(6deg) scale(.7);filter:blur(4px);animation:charFlyIn .75s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(.15s + var(--d));animation-play-state:running;}
+  .hero h1 .hl-ch{display:inline-block;background:linear-gradient(100deg,var(--gold-light) 20%,#fff 45%,var(--gold) 60%,var(--gold-light) 80%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--gold-light);opacity:0;transform:translateY(38px) rotate(6deg) scale(.7);filter:blur(4px);animation:charFlyIn .75s cubic-bezier(.2,.8,.2,1) forwards, shimmer 5s ease-in-out infinite;animation-delay:calc(.15s + var(--d)), 1.1s;animation-play-state:running,running;}
+  @keyframes charFlyIn{to{opacity:1;transform:translateY(0) rotate(0) scale(1);filter:blur(0);}}
+  body.intro-active .hero h1 .ch,
+  body.intro-active .hero h1 .hl-ch{animation-play-state:paused;animation-play-state:paused,paused;}
 
   /* ambient orbs */
   .hero-orbs{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
@@ -272,7 +276,7 @@
   #intro-skip:hover{background:rgba(255,255,255,.22);}
 </style>
 </head>
-<body>
+<body class="intro-active">
 
 <div id="intro-overlay">
   <video id="intro-video" autoplay muted playsinline>
@@ -305,7 +309,7 @@
   <div class="particles" id="particles"></div>
   <div class="hero-content container">
     <span class="eyebrow">45+ 남녀 모두를 위한 워킹 &amp; 모델 클래스</span>
-    <h1>나이는 숫자,<br><span class="hl">런웨이는</span> 지금부터</h1>
+    <h1><span class="ch" style="--d:.00s">나</span><span class="ch" style="--d:.045s">이</span><span class="ch" style="--d:.09s">는</span> <span class="ch" style="--d:.135s">숫</span><span class="ch" style="--d:.18s">자</span><span class="ch" style="--d:.225s">,</span><br><span class="hl-ch" style="--d:.27s">런</span><span class="hl-ch" style="--d:.315s">웨</span><span class="hl-ch" style="--d:.36s">이</span><span class="hl-ch" style="--d:.405s">는</span> <span class="ch" style="--d:.45s">지</span><span class="ch" style="--d:.495s">금</span><span class="ch" style="--d:.54s">부</span><span class="ch" style="--d:.585s">터</span></h1>
     <p class="desc">거울 앞에서 움츠러들던 어깨를 펴고, 당당한 걸음으로 새로운 나를 만나보세요.<br>45세 이상이라면 성별 관계없이 누구나, 12주 완성 워킹 클래스입니다.</p>
     <div class="hero-btns">
       <a href="#signup" class="btn btn-gold">무료 설명회 신청하기</a>
@@ -638,6 +642,7 @@
     if(!overlay) return;
     if(sessionStorage.getItem('funlifeSeniorIntroSeen')){
       overlay.remove();
+      document.body.classList.remove('intro-active');
       return;
     }
     const video = document.getElementById('intro-video');
@@ -648,6 +653,7 @@
       dismissed = true;
       sessionStorage.setItem('funlifeSeniorIntroSeen', '1');
       overlay.classList.add('hide');
+      document.body.classList.remove('intro-active');
       setTimeout(() => overlay.remove(), 650);
     }
     video.addEventListener('ended', dismiss);
